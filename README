@@ -1,31 +1,13 @@
 	<h1>MooTable Demo</h1>
-
-	
-
-	
-
-	
-
 	<h2>Features</h2>
-
-	
-
 	<ul>
-
 		<li>MooTable only supports from now creating table from table, results in much quicker rendering time for larger tables (speed improvement is noticable with row count over 50)</li>
-
 		<li>hide columns</li>
-
 		<li>added protected in options (will not allow columns to be hidden)</li>
-
 	 	<li>saving columns settings in Cookies (size, sort, order and visibility) </li>
-
 		<li>reworked sorting system, implemented from Stuart Langridge, changed sorting with dates to accept dd/mm/yyyy</li>		
-
 		<li>you can choose order of columns in display menu (top right corner of the table)</li>
-
 		<li>fixed footer row</li>
-
 	</ul>
 
 	
@@ -33,59 +15,18 @@
 	<h2>Know issues</h2>
 
 	
-
-	<ul>
-
+  <ul>
 		<li>settings panel doesn't show properly in Safari</li>
-
 		<li>it's not fully mootoolishly written</li>
-
 	</ul>
-
-	
 
 	<h2>Example</h2>
-
-	
-
 	<ul>
-
 		<li>Build table containing thead for column titles</li>
-
 		<li>Set ID property of table to e.g 'table_id', and execute MooTable like this:</li>
-
 	<pre>
-
 	window.addEvent("domready", function(){
-
 		new MooTable( $("table_id"), {sortable: 'Date,Crobis,Crobex', resizable: false, height: '400px', footer:true, protected:'Date, Crobex', decimal:','});
-
 	})
-
 	</pre>
-
-	</ul>
-
-	
-
-	<h2>History</h2>
-
-	<ul>
-
-		<li>05.06.2008 - moved filter fields to header where they belong</li>
-
-		<li>16.05.2008 - added decimal option to choose decimal separator sign, defaults to .</li>
-
-		<li>16.05.2008 - changed sortable option to accept list of columns to be sortable (thanx to Jordan Ehrlich (KU))</li>
-
-	    <li>31.03.2008 - added new option : minColWidth (width in px) minimal column width</li>
-
-	    <li>31.03.2008 - added new option : fade (true|false)</li>
-
-	    <li>28.03.2008 - testing new filter</li>
-
-		<li>25.03.2008 - added new option : footer (true|false) will not sort last row in a table</li>
-
-		<li>25.03.2008 - selected row class</li>
-
 	</ul>
