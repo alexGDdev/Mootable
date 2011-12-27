@@ -1,32 +1,27 @@
-	<h1>MooTable Demo</h1>
-	<h2>Features</h2>
-	<ul>
-		<li>MooTable only supports from now creating table from table, results in much quicker rendering time for larger tables (speed improvement is noticable with row count over 50)</li>
-		<li>hide columns</li>
-		<li>added protected in options (will not allow columns to be hidden)</li>
-	 	<li>saving columns settings in Cookies (size, sort, order and visibility) </li>
-		<li>reworked sorting system, implemented from Stuart Langridge, changed sorting with dates to accept dd/mm/yyyy</li>		
-		<li>you can choose order of columns in display menu (top right corner of the table)</li>
-		<li>fixed footer row</li>
-	</ul>
+MooTable Demo
 
-	
+Features
+--------
 
-	<h2>Know issues</h2>
+* MooTable only supports from now creating table from table, results in much quicker rendering time for larger tables (speed improvement is noticable with row count over 50)
+hide columns
+* added protected in options (will not allow columns to be hidden)
+* saving columns settings in Cookies (size, sort, order and visibility)
+* reworked sorting system, implemented from Stuart Langridge, changed sorting with dates to accept dd/mm/yyyy
+* you can choose order of columns in display menu (top right corner of the table)
+* fixed footer row
 
-	
-  <ul>
-		<li>settings panel doesn't show properly in Safari</li>
-		<li>it's not fully mootoolishly written</li>
-	</ul>
+Know issues
+-----------
+* settings panel doesn't show properly in Safari
+* it's not fully mootoolishly written
 
-	<h2>Example</h2>
-	<ul>
-		<li>Build table containing thead for column titles</li>
-		<li>Set ID property of table to e.g 'table_id', and execute MooTable like this:</li>
-	<pre>
-	window.addEvent("domready", function(){
-		new MooTable( $("table_id"), {sortable: 'Date,Crobis,Crobex', resizable: false, height: '400px', footer:true, protected:'Date, Crobex', decimal:','});
-	})
-	</pre>
-	</ul>
+Example
+-------
+
+Build table containing thead for column titles
+Set ID property of table to e.g 'table_id', and execute MooTable like this:
+
+  window.addEvent("domready", function(){
+    new MooTable( $("table_id"), {sortable: 'Date,Crobis,Crobex', resizable: false, height: '400px', footer:true, protected:'Date, Crobex', decimal:','});
+  })
