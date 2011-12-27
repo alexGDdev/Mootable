@@ -1,0 +1,2660 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>  
+	<head>  
+		<meta http-equiv="content-type" content="text/html; charset=windows-1250">  
+		<meta name="generator" content="PSPad editor, www.pspad.com">  
+		<title>MooTable Demo</title>  
+		<script src='js/mootools.v1.11.js'></script>  
+		<script src='js/mootable.js'></script>  
+		<link href="js/mootable.css" rel="stylesheet" type="text/css">
+		<style>
+		body{
+			font-size: 12px;
+			font-family: Arial;
+		}
+		</style>
+	</head>  
+	<body>
+	<script>
+	window.addEvent("domready", function(){
+		new MooTable( $("table_id"), {sortable: true, resizable: false, height: '400px', footer:true, protected:'Date, Crobex', filter:'Date' });
+	})
+	</script>
+	
+	<h1>MooTable Demo</h1>
+	
+	
+	
+	<h2>Features</h2>
+	
+	<ul>
+		<li>MooTable only supports from now creating table from table, results in much quicker rendering time for larger tables (speed improvement is noticable with row count over 50)</li>
+		<li>hide columns</li>
+		<li>added protected in options (will not allow columns to be hidden)</li>
+	 	<li>saving columns settings in Cookies (size, sort, order and visibility) </li>
+		<li>reworked sorting system, implemented from Stuart Langridge, changed sorting with dates to accept dd/mm/yyyy</li>		
+		<li>you can choose order of columns in display menu (top right corner of the table)</li>
+		<li>fixed footer row</li>
+	</ul>
+	
+	<h2>Know issues</h2>
+	
+	<ul>
+		<li>settings panel doesn't show properly in Safari</li>
+		<li>it's not fully mootoolishly written</li>
+	</ul>
+	
+	<h2>Example</h2>
+	
+	<ul>
+		<li>Build table containing thead for column titles</li>
+		<li>Set ID property of table to e.g 'table_id', and execute MooTable like this:</li>
+	<pre>
+	window.addEvent("domready", function(){
+		new MooTable( $("table_id"), {sortable: true, resizable: false, height: '365px', footer:true, protected:'Date, Crobex', minColWidth:30);
+	})
+	</pre>
+	</ul>
+	
+	<h2>History</h2>
+	<ul>
+	    <li>31.03.2008 - added new option : minColWidth (width in px) minimal column width</li>
+	    <li>31.03.2008 - added new option : fade (true|false)</li>
+	    <li>28.03.2008 - testing new filter</li>
+		<li>25.03.2008 - added new option : footer (true|false) will not sort last row in a table</li>
+		<li>25.03.2008 - selected row class</li>
+	</ul>
+	
+	<h2>Download</h2>
+	<ul>
+		<li><a href='mootabledemo.rar'>Download ZIP all files(2008-03-25 version)</a></li>
+		<li><a href='js/mootable.js'>mootable.js</a></li>
+	</ul>
+	
+	Test table is showing 365 rows.
+	<div style="width:500px;">
+		<table id='table_id' cellpadding='0' cellspacing='0'>
+			<thead>
+				<tr>
+					<td>Date</td>
+					<td>Crobex</td>
+					<td>%Crobex</td>
+					<td>Crobis</td>
+					<td>%Crobis</td>
+				</tr>
+			</thead>
+			<tr res='t15.2.2008' >
+				<td><strong>15.2.2008</strong></td>
+				<td>4.010,01</td>
+				<td>- 1,33</td>
+				<td>95,17</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t14.2.2008' >
+				<td><strong>14.2.2008</strong></td>
+				<td>4.064,14</td>
+				<td>- 0,30</td>
+				<td>95,16</td>
+				<td>- 0,16</td>
+			</tr>
+			<tr res='t13.2.2008' >
+				<td><strong>13.2.2008</strong></td>
+				<td>4.076,31</td>
+				<td>- 2,50</td>
+				<td>95,31</td>
+				<td>- 0,08</td>
+			</tr>
+			<tr res='t12.2.2008' >
+				<td><strong>12.2.2008</strong></td>
+				<td>4.180,88</td>
+				<td>4,06</td>
+				<td>95,38</td>
+				<td>- 0,29</td>
+			</tr>
+			<tr res='t11.2.2008' >
+				<td><strong>11.2.2008</strong></td>
+				<td>4.017,87</td>
+				<td>- 2,20</td>
+				<td>95,66</td>
+				<td>- 0,13</td>
+			</tr>
+			<tr res='t8.2.2008' >
+				<td><strong>8.2.2008</strong></td>
+				<td>4.108,38</td>
+				<td>- 1,34</td>
+				<td>95,78</td>
+				<td>- 0,14</td>
+			</tr>
+			<tr res='t7.2.2008' >
+				<td><strong>7.2.2008</strong></td>
+				<td>4.164,39</td>
+				<td>- 3,13</td>
+				<td>95,91</td>
+				<td>- 0,02</td>
+			</tr>
+			<tr res='t6.2.2008' >
+				<td><strong>6.2.2008</strong></td>
+				<td>4.298,78</td>
+				<td>- 2,45</td>
+				<td>95,93</td>
+				<td>0,14</td>
+			</tr>
+			<tr res='t5.2.2008' >
+				<td><strong>5.2.2008</strong></td>
+				<td>4.406,58</td>
+				<td>- 2,21</td>
+				<td>95,80</td>
+				<td>0,11</td>
+			</tr>
+			<tr res='t4.2.2008' >
+				<td><strong>4.2.2008</strong></td>
+				<td>4.506,31</td>
+				<td>0,63</td>
+				<td>95,69</td>
+				<td>0,12</td>
+			</tr>
+			<tr res='t1.2.2008' >
+				<td><strong>1.2.2008</strong></td>
+				<td>4.477,90</td>
+				<td>- 0,43</td>
+				<td>95,58</td>
+				<td>0,16</td>
+			</tr>
+			<tr res='t31.1.2008' >
+				<td><strong>31.1.2008</strong></td>
+				<td>4.497,18</td>
+				<td>- 0,32</td>
+				<td>95,43</td>
+				<td>- 0,03</td>
+			</tr>
+			<tr res='t30.1.2008' >
+				<td><strong>30.1.2008</strong></td>
+				<td>4.511,70</td>
+				<td>0,53</td>
+				<td>95,46</td>
+				<td>0,03</td>
+			</tr>
+			<tr res='t29.1.2008' >
+				<td><strong>29.1.2008</strong></td>
+				<td>4.487,82</td>
+				<td>1,28</td>
+				<td>95,43</td>
+				<td>- 0,21</td>
+			</tr>
+			<tr res='t28.1.2008' >
+				<td><strong>28.1.2008</strong></td>
+				<td>4.431,27</td>
+				<td>- 1,81</td>
+				<td>95,63</td>
+				<td>0,28</td>
+			</tr>
+			<tr res='t25.1.2008' >
+				<td><strong>25.1.2008</strong></td>
+				<td>4.513,08</td>
+				<td>0,23</td>
+				<td>95,36</td>
+				<td>- 0,45</td>
+			</tr>
+			<tr res='t24.1.2008' >
+				<td><strong>24.1.2008</strong></td>
+				<td>4.502,67</td>
+				<td>2,09</td>
+				<td>95,79</td>
+				<td>- 0,01</td>
+			</tr>
+			<tr res='t23.1.2008' >
+				<td><strong>23.1.2008</strong></td>
+				<td>4.410,57</td>
+				<td>- 2,39</td>
+				<td>95,80</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t22.1.2008' >
+				<td><strong>22.1.2008</strong></td>
+				<td>4.518,41</td>
+				<td>- 2,07</td>
+				<td>95,79</td>
+				<td>- 0,57</td>
+			</tr>
+			<tr res='t21.1.2008' >
+				<td><strong>21.1.2008</strong></td>
+				<td>4.613,89</td>
+				<td>- 4,83</td>
+				<td>96,34</td>
+				<td>0,04</td>
+			</tr>
+			<tr res='t18.1.2008' >
+				<td><strong>18.1.2008</strong></td>
+				<td>4.848,07</td>
+				<td>- 1,54</td>
+				<td>96,30</td>
+				<td>0,03</td>
+			</tr>
+			<tr res='t17.1.2008' >
+				<td><strong>17.1.2008</strong></td>
+				<td>4.923,88</td>
+				<td>0,58</td>
+				<td>96,27</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t16.1.2008' >
+				<td><strong>16.1.2008</strong></td>
+				<td>4.895,69</td>
+				<td>- 2,77</td>
+				<td>96,26</td>
+				<td>0,00</td>
+			</tr>
+			<tr res='t15.1.2008' >
+				<td><strong>15.1.2008</strong></td>
+				<td>5.035,35</td>
+				<td>- 1,93</td>
+				<td>96,26</td>
+				<td>- 0,15</td>
+			</tr>
+			<tr res='t14.1.2008' >
+				<td><strong>14.1.2008</strong></td>
+				<td>5.134,24</td>
+				<td>- 0,76</td>
+				<td>96,40</td>
+				<td>0,57</td>
+			</tr>
+			<tr res='t11.1.2008' >
+				<td><strong>11.1.2008</strong></td>
+				<td>5.173,66</td>
+				<td>0,57</td>
+				<td>96,33</td>
+				<td>0,03</td>
+			</tr>
+			<tr res='t10.1.2008' >
+				<td><strong>10.1.2008</strong></td>
+				<td>5.144,29</td>
+				<td>1,28</td>
+				<td>96,28</td>
+				<td>- 0,01</td>
+			</tr>
+			<tr res='t9.1.2008' >
+				<td><strong>9.1.2008</strong></td>
+				<td>5.079,11</td>
+				<td>- 0,59</td>
+				<td>96,27</td>
+				<td>- 0,10</td>
+			</tr>
+			<tr res='t8.1.2008' >
+				<td><strong>8.1.2008</strong></td>
+				<td>5.109,14</td>
+				<td>- 0,75</td>
+				<td>96,35</td>
+				<td>- 0,20</td>
+			</tr>
+			<tr res='t7.1.2008' >
+				<td><strong>7.1.2008</strong></td>
+				<td>5.147,84</td>
+				<td>- 2,49</td>
+				<td>96,49</td>
+				<td>- 0,06</td>
+			</tr>
+			<tr res='t4.1.2008' >
+				<td><strong>4.1.2008</strong></td>
+				<td>5.279,14</td>
+				<td>0,10</td>
+				<td>96,53</td>
+				<td>- 0,04</td>
+			</tr>
+			<tr res='t3.1.2008' >
+				<td><strong>3.1.2008</strong></td>
+				<td>5.273,88</td>
+				<td>0,54</td>
+				<td>96,56</td>
+				<td>0,11</td>
+			</tr>
+			<tr res='t2.1.2008' >
+				<td><strong>2.1.2008</strong></td>
+				<td>5.245,58</td>
+				<td>0,13</td>
+				<td>96,45</td>
+				<td>- 0,03</td>
+			</tr>
+			<tr res='t31.12.2007' >
+				<td><strong>31.12.2007</strong></td>
+				<td>5.239,03</td>
+				<td>0,55</td>
+				<td>96,48</td>
+				<td>0,19</td>
+			</tr>
+			<tr res='t28.12.2007' >
+				<td><strong>28.12.2007</strong></td>
+				<td>5.210,33</td>
+				<td>1,58</td>
+				<td>96,30</td>
+				<td>0,00</td>
+			</tr>
+			<tr res='t27.12.2007' >
+				<td><strong>27.12.2007</strong></td>
+				<td>5.129,11</td>
+				<td>1,27</td>
+				<td>96,31</td>
+				<td>- 0,03</td>
+			</tr>
+			<tr res='t21.12.2007' >
+				<td><strong>21.12.2007</strong></td>
+				<td>5.064,88</td>
+				<td>0,54</td>
+				<td>96,34</td>
+				<td>- 0,21</td>
+			</tr>
+			<tr res='t20.12.2007' >
+				<td><strong>20.12.2007</strong></td>
+				<td>5.037,85</td>
+				<td>0,11</td>
+				<td>96,63</td>
+				<td>- 0,01</td>
+			</tr>
+			<tr res='t19.12.2007' >
+				<td><strong>19.12.2007</strong></td>
+				<td>5.032,16</td>
+				<td>0,85</td>
+				<td>96,64</td>
+				<td>0,07</td>
+			</tr>
+			<tr res='t18.12.2007' >
+				<td><strong>18.12.2007</strong></td>
+				<td>4.989,58</td>
+				<td>0,02</td>
+				<td>96,57</td>
+				<td>0,00</td>
+			</tr>
+			<tr res='t17.12.2007' >
+				<td><strong>17.12.2007</strong></td>
+				<td>4.888,04</td>
+				<td>- 0,83</td>
+				<td>96,57</td>
+				<td>0,09</td>
+			</tr>
+			<tr res='t14.12.2007' >
+				<td><strong>14.12.2007</strong></td>
+				<td>4.928,91</td>
+				<td>- 0,54</td>
+				<td>96,48</td>
+				<td>0,22</td>
+			</tr>
+			<tr res='t13.12.2007' >
+				<td><strong>13.12.2007</strong></td>
+				<td>4.955,58</td>
+				<td>- 0,59</td>
+				<td>96,27</td>
+				<td>0,09</td>
+			</tr>
+			<tr res='t12.12.2007' >
+				<td><strong>12.12.2007</strong></td>
+				<td>4.985,09</td>
+				<td>- 0,33</td>
+				<td>96,18</td>
+				<td>0,08</td>
+			</tr>
+			<tr res='t11.12.2007' >
+				<td><strong>11.12.2007</strong></td>
+				<td>5.001,52</td>
+				<td>1,41</td>
+				<td>96,10</td>
+				<td>- 0,15</td>
+			</tr>
+			<tr res='t10.12.2007' >
+				<td><strong>10.12.2007</strong></td>
+				<td>4.931,90</td>
+				<td>0,12</td>
+				<td>96,25</td>
+				<td>0,10</td>
+			</tr>
+			<tr res='t7.12.2007' >
+				<td><strong>7.12.2007</strong></td>
+				<td>4.926,19</td>
+				<td>- 0,79</td>
+				<td>96,15</td>
+				<td>- 0,06</td>
+			</tr>
+			<tr res='t6.12.2007' >
+				<td><strong>6.12.2007</strong></td>
+				<td>4.965,66</td>
+				<td>2,60</td>
+				<td>96,21</td>
+				<td>0,07</td>
+			</tr>
+			<tr res='t5.12.2007' >
+				<td><strong>5.12.2007</strong></td>
+				<td>4.839,82</td>
+				<td>3,13</td>
+				<td>96,14</td>
+				<td>- 0,06</td>
+			</tr>
+			<tr res='t4.12.2007' >
+				<td><strong>4.12.2007</strong></td>
+				<td>4.692,91</td>
+				<td>1,11</td>
+				<td>96,20</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t3.12.2007' >
+				<td><strong>3.12.2007</strong></td>
+				<td>4.641,36</td>
+				<td>- 0,35</td>
+				<td>96,19</td>
+				<td>0,12</td>
+			</tr>
+			<tr res='t30.11.2007' >
+				<td><strong>30.11.2007</strong></td>
+				<td>4.657,51</td>
+				<td>0,68</td>
+				<td>96,08</td>
+				<td>0,18</td>
+			</tr>
+			<tr res='t29.11.2007' >
+				<td><strong>29.11.2007</strong></td>
+				<td>4.626,08</td>
+				<td>0,55</td>
+				<td>95,91</td>
+				<td>0,18</td>
+			</tr>
+			<tr res='t28.11.2007' >
+				<td><strong>28.11.2007</strong></td>
+				<td>4.600,80</td>
+				<td>- 1,09</td>
+				<td>95,74</td>
+				<td>- 0,14</td>
+			</tr>
+			<tr res='t27.11.2007' >
+				<td><strong>27.11.2007</strong></td>
+				<td>4.651,57</td>
+				<td>- 1,64</td>
+				<td>95,87</td>
+				<td>- 0,34</td>
+			</tr>
+			<tr res='t26.11.2007' >
+				<td><strong>26.11.2007</strong></td>
+				<td>4.729,11</td>
+				<td>0,92</td>
+				<td>96,20</td>
+				<td>- 0,15</td>
+			</tr>
+			<tr res='t23.11.2007' >
+				<td><strong>23.11.2007</strong></td>
+				<td>4.685,88</td>
+				<td>1,47</td>
+				<td>96,34</td>
+				<td>- 0,17</td>
+			</tr>
+			<tr res='t22.11.2007' >
+				<td><strong>22.11.2007</strong></td>
+				<td>4.617,91</td>
+				<td>- 0,23</td>
+				<td>96,50</td>
+				<td>- 0,35</td>
+			</tr>
+			<tr res='t21.11.2007' >
+				<td><strong>21.11.2007</strong></td>
+				<td>4.628,64</td>
+				<td>0,13</td>
+				<td>96,85</td>
+				<td>- 0,18</td>
+			</tr>
+			<tr res='t20.11.2007' >
+				<td><strong>20.11.2007</strong></td>
+				<td>4.622,63</td>
+				<td>1,06</td>
+				<td>97,02</td>
+				<td>- 0,34</td>
+			</tr>
+			<tr res='t19.11.2007' >
+				<td><strong>19.11.2007</strong></td>
+				<td>4.574,06</td>
+				<td>- 3,51</td>
+				<td>97,35</td>
+				<td>- 0,02</td>
+			</tr>
+			<tr res='t16.11.2007' >
+				<td><strong>16.11.2007</strong></td>
+				<td>4.740,23</td>
+				<td>- 2,99</td>
+				<td>97,36</td>
+				<td>- 0,11</td>
+			</tr>
+			<tr res='t15.11.2007' >
+				<td><strong>15.11.2007</strong></td>
+				<td>4.886,58</td>
+				<td>- 1,67</td>
+				<td>97,47</td>
+				<td>- 0,18</td>
+			</tr>
+			<tr res='t14.11.2007' >
+				<td><strong>14.11.2007</strong></td>
+				<td>4.969,77</td>
+				<td>0,05</td>
+				<td>97,65</td>
+				<td>- 0,27</td>
+			</tr>
+			<tr res='t13.11.2007' >
+				<td><strong>13.11.2007</strong></td>
+				<td>4.967,40</td>
+				<td>0,16</td>
+				<td>97,91</td>
+				<td>- 0,03</td>
+			</tr>
+			<tr res='t12.11.2007' >
+				<td><strong>12.11.2007</strong></td>
+				<td>4.959,67</td>
+				<td>- 0,39</td>
+				<td>97,94</td>
+				<td>0,18</td>
+			</tr>
+			<tr res='t9.11.2007' >
+				<td><strong>9.11.2007</strong></td>
+				<td>4.979,31</td>
+				<td>0,42</td>
+				<td>97,77</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t8.11.2007' >
+				<td><strong>8.11.2007</strong></td>
+				<td>4.958,52</td>
+				<td>- 0,67</td>
+				<td>97,75</td>
+				<td>0,05</td>
+			</tr>
+			<tr res='t7.11.2007' >
+				<td><strong>7.11.2007</strong></td>
+				<td>4.991,87</td>
+				<td>- 0,32</td>
+				<td>97,70</td>
+				<td>- 0,11</td>
+			</tr>
+			<tr res='t6.11.2007' >
+				<td><strong>6.11.2007</strong></td>
+				<td>5.007,69</td>
+				<td>0,44</td>
+				<td>97,81</td>
+				<td>- 0,08</td>
+			</tr>
+			<tr res='t5.11.2007' >
+				<td><strong>5.11.2007</strong></td>
+				<td>4.985,73</td>
+				<td>- 2,69</td>
+				<td>97,89</td>
+				<td>- 0,01</td>
+			</tr>
+			<tr res='t31.10.2007' >
+				<td><strong>31.10.2007</strong></td>
+				<td>5.123,63</td>
+				<td>- 0,53</td>
+				<td>97,90</td>
+				<td>- 0,12</td>
+			</tr>
+			<tr res='t30.10.2007' >
+				<td><strong>30.10.2007</strong></td>
+				<td>5.150,72</td>
+				<td>- 1,74</td>
+				<td>98,02</td>
+				<td>- 0,08</td>
+			</tr>
+			<tr res='t29.10.2007' >
+				<td><strong>29.10.2007</strong></td>
+				<td>5.241,87</td>
+				<td>- 1,13</td>
+				<td>98,10</td>
+				<td>0,02</td>
+			</tr>
+			<tr res='t26.10.2007' >
+				<td><strong>26.10.2007</strong></td>
+				<td>5.301,82</td>
+				<td>- 0,44</td>
+				<td>98,08</td>
+				<td>- 0,03</td>
+			</tr>
+			<tr res='t25.10.2007' >
+				<td><strong>25.10.2007</strong></td>
+				<td>5.325,04</td>
+				<td>- 0,39</td>
+				<td>98,11</td>
+				<td>0,03</td>
+			</tr>
+			<tr res='t24.10.2007' >
+				<td><strong>24.10.2007</strong></td>
+				<td>5.346,11</td>
+				<td>- 0,17</td>
+				<td>98,08</td>
+				<td>- 0,04</td>
+			</tr>
+			<tr res='t23.10.2007' >
+				<td><strong>23.10.2007</strong></td>
+				<td>5.355,44</td>
+				<td>0,82</td>
+				<td>98,12</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t22.10.2007' >
+				<td><strong>22.10.2007</strong></td>
+				<td>5.311,67</td>
+				<td>- 1,05</td>
+				<td>98,11</td>
+				<td>0,03</td>
+			</tr>
+			<tr res='t19.10.2007' >
+				<td><strong>19.10.2007</strong></td>
+				<td>5.368,13</td>
+				<td>- 0,14</td>
+				<td>98,08</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t18.10.2007' >
+				<td><strong>18.10.2007</strong></td>
+				<td>5.375,87</td>
+				<td>0,70</td>
+				<td>98,07</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t17.10.2007' >
+				<td><strong>17.10.2007</strong></td>
+				<td>5.338,36</td>
+				<td>- 0,46</td>
+				<td>98,07</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t16.10.2007' >
+				<td><strong>16.10.2007</strong></td>
+				<td>5.362,86</td>
+				<td>- 0,56</td>
+				<td>98,06</td>
+				<td>0,06</td>
+			</tr>
+			<tr res='t15.10.2007' >
+				<td><strong>15.10.2007</strong></td>
+				<td>5.392,94</td>
+				<td>1,57</td>
+				<td>98,00</td>
+				<td>0,09</td>
+			</tr>
+			<tr res='t12.10.2007' >
+				<td><strong>12.10.2007</strong></td>
+				<td>5.309,62</td>
+				<td>0,86</td>
+				<td>97,91</td>
+				<td>- 0,07</td>
+			</tr>
+			<tr res='t11.10.2007' >
+				<td><strong>11.10.2007</strong></td>
+				<td>5.264,11</td>
+				<td>- 0,17</td>
+				<td>97,98</td>
+				<td>- 0,35</td>
+			</tr>
+			<tr res='t10.10.2007' >
+				<td><strong>10.10.2007</strong></td>
+				<td>5.273,17</td>
+				<td>1,09</td>
+				<td>98,31</td>
+				<td>- 0,16</td>
+			</tr>
+			<tr res='t9.10.2007' >
+				<td><strong>9.10.2007</strong></td>
+				<td>5.216,10</td>
+				<td>0,78</td>
+				<td>98,48</td>
+				<td>0,05</td>
+			</tr>
+			<tr res='t5.10.2007' >
+				<td><strong>5.10.2007</strong></td>
+				<td>5.175,94</td>
+				<td>- 0,08</td>
+				<td>98,43</td>
+				<td>- 0,06</td>
+			</tr>
+			<tr res='t4.10.2007' >
+				<td><strong>4.10.2007</strong></td>
+				<td>5.179,88</td>
+				<td>- 0,33</td>
+				<td>98,48</td>
+				<td>0,11</td>
+			</tr>
+			<tr res='t3.10.2007' >
+				<td><strong>3.10.2007</strong></td>
+				<td>5.197,17</td>
+				<td>1,58</td>
+				<td>98,37</td>
+				<td>- 0,07</td>
+			</tr>
+			<tr res='t2.10.2007' >
+				<td><strong>2.10.2007</strong></td>
+				<td>5.116,55</td>
+				<td>1,08</td>
+				<td>98,44</td>
+				<td>- 0,01</td>
+			</tr>
+			<tr res='t1.10.2007' >
+				<td><strong>1.10.2007</strong></td>
+				<td>5.061,90</td>
+				<td>0,49</td>
+				<td>98,45</td>
+				<td>- 0,01</td>
+			</tr>
+			<tr res='t28.9.2007' >
+				<td><strong>28.9.2007</strong></td>
+				<td>5.037,19</td>
+				<td>- 0,58</td>
+				<td>98,46</td>
+				<td>0,14</td>
+			</tr>
+			<tr res='t27.9.2007' >
+				<td><strong>27.9.2007</strong></td>
+				<td>5.066,41</td>
+				<td>0,92</td>
+				<td>98,32</td>
+				<td>0,11</td>
+			</tr>
+			<tr res='t26.9.2007' >
+				<td><strong>26.9.2007</strong></td>
+				<td>5.020,14</td>
+				<td>2,67</td>
+				<td>98,21</td>
+				<td>0,19</td>
+			</tr>
+			<tr res='t25.9.2007' >
+				<td><strong>25.9.2007</strong></td>
+				<td>4.889,59</td>
+				<td>0,91</td>
+				<td>98,03</td>
+				<td>- 0,01</td>
+			</tr>
+			<tr res='t24.9.2007' >
+				<td><strong>24.9.2007</strong></td>
+				<td>4.845,50</td>
+				<td>0,16</td>
+				<td>98,03</td>
+				<td>0,02</td>
+			</tr>
+			<tr res='t21.9.2007' >
+				<td><strong>21.9.2007</strong></td>
+				<td>4.837,72</td>
+				<td>0,67</td>
+				<td>98,02</td>
+				<td>- 0,19</td>
+			</tr>
+			<tr res='t20.9.2007' >
+				<td><strong>20.9.2007</strong></td>
+				<td>4.805,41</td>
+				<td>1,24</td>
+				<td>98,20</td>
+				<td>0,06</td>
+			</tr>
+			<tr res='t19.9.2007' >
+				<td><strong>19.9.2007</strong></td>
+				<td>4.746,49</td>
+				<td>3,58</td>
+				<td>98,15</td>
+				<td>- 0,40</td>
+			</tr>
+			<tr res='t18.9.2007' >
+				<td><strong>18.9.2007</strong></td>
+				<td>4.582,28</td>
+				<td>0,07</td>
+				<td>98,54</td>
+				<td>0,02</td>
+			</tr>
+			<tr res='t17.9.2007' >
+				<td><strong>17.9.2007</strong></td>
+				<td>4.579,08</td>
+				<td>- 1,47</td>
+				<td>98,52</td>
+				<td>- 0,04</td>
+			</tr>
+			<tr res='t14.9.2007' >
+				<td><strong>14.9.2007</strong></td>
+				<td>4.647,44</td>
+				<td>- 0,33</td>
+				<td>98,56</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t13.9.2007' >
+				<td><strong>13.9.2007</strong></td>
+				<td>4.662,93</td>
+				<td>- 0,10</td>
+				<td>98,55</td>
+				<td>- 0,06</td>
+			</tr>
+			<tr res='t12.9.2007' >
+				<td><strong>12.9.2007</strong></td>
+				<td>4.667,83</td>
+				<td>- 0,51</td>
+				<td>98,62</td>
+				<td>- 0,03</td>
+			</tr>
+			<tr res='t11.9.2007' >
+				<td><strong>11.9.2007</strong></td>
+				<td>4.691,75</td>
+				<td>- 0,57</td>
+				<td>98,65</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t10.9.2007' >
+				<td><strong>10.9.2007</strong></td>
+				<td>4.718,69</td>
+				<td>- 0,37</td>
+				<td>98,64</td>
+				<td>0,03</td>
+			</tr>
+			<tr res='t7.9.2007' >
+				<td><strong>7.9.2007</strong></td>
+				<td>4.736,08</td>
+				<td>0,37</td>
+				<td>98,61</td>
+				<td>0,23</td>
+			</tr>
+			<tr res='t6.9.2007' >
+				<td><strong>6.9.2007</strong></td>
+				<td>4.718,43</td>
+				<td>0,87</td>
+				<td>98,38</td>
+				<td>- 0,02</td>
+			</tr>
+			<tr res='t5.9.2007' >
+				<td><strong>5.9.2007</strong></td>
+				<td>4.677,75</td>
+				<td>0,28</td>
+				<td>98,48</td>
+				<td>0,04</td>
+			</tr>
+			<tr res='t4.9.2007' >
+				<td><strong>4.9.2007</strong></td>
+				<td>4.664,67</td>
+				<td>- 0,64</td>
+				<td>98,44</td>
+				<td>- 0,11</td>
+			</tr>
+			<tr res='t3.9.2007' >
+				<td><strong>3.9.2007</strong></td>
+				<td>4.694,82</td>
+				<td>- 1,38</td>
+				<td>98,55</td>
+				<td>0,02</td>
+			</tr>
+			<tr res='t31.8.2007' >
+				<td><strong>31.8.2007</strong></td>
+				<td>4.760,39</td>
+				<td>0,09</td>
+				<td>98,53</td>
+				<td>- 0,01</td>
+			</tr>
+			<tr res='t30.8.2007' >
+				<td><strong>30.8.2007</strong></td>
+				<td>4.755,91</td>
+				<td>0,12</td>
+				<td>98,54</td>
+				<td>0,05</td>
+			</tr>
+			<tr res='t29.8.2007' >
+				<td><strong>29.8.2007</strong></td>
+				<td>4.750,09</td>
+				<td>0,92</td>
+				<td>98,49</td>
+				<td>0,04</td>
+			</tr>
+			<tr res='t28.8.2007' >
+				<td><strong>28.8.2007</strong></td>
+				<td>4.706,67</td>
+				<td>- 0,04</td>
+				<td>98,45</td>
+				<td>0,02</td>
+			</tr>
+			<tr res='t27.8.2007' >
+				<td><strong>27.8.2007</strong></td>
+				<td>4.708,40</td>
+				<td>- 0,60</td>
+				<td>98,43</td>
+				<td>- 0,09</td>
+			</tr>
+			<tr res='t24.8.2007' >
+				<td><strong>24.8.2007</strong></td>
+				<td>4.736,74</td>
+				<td>- 0,71</td>
+				<td>98,53</td>
+				<td>- 0,10</td>
+			</tr>
+			<tr res='t23.8.2007' >
+				<td><strong>23.8.2007</strong></td>
+				<td>4.770,42</td>
+				<td>- 1,15</td>
+				<td>98,63</td>
+				<td>- 0,09</td>
+			</tr>
+			<tr res='t22.8.2007' >
+				<td><strong>22.8.2007</strong></td>
+				<td>4.825,70</td>
+				<td>- 0,51</td>
+				<td>98,72</td>
+				<td>0,09</td>
+			</tr>
+			<tr res='t21.8.2007' >
+				<td><strong>21.8.2007</strong></td>
+				<td>4.850,43</td>
+				<td>- 0,27</td>
+				<td>98,62</td>
+				<td>- 0,16</td>
+			</tr>
+			<tr res='t20.8.2007' >
+				<td><strong>20.8.2007</strong></td>
+				<td>4.863,36</td>
+				<td>1,19</td>
+				<td>98,78</td>
+				<td>- 0,05</td>
+			</tr>
+			<tr res='t17.8.2007' >
+				<td><strong>17.8.2007</strong></td>
+				<td>4.806,37</td>
+				<td>- 0,82</td>
+				<td>98,83</td>
+				<td>0,02</td>
+			</tr>
+			<tr res='t16.8.2007' >
+				<td><strong>16.8.2007</strong></td>
+				<td>4.846,27</td>
+				<td>- 2,85</td>
+				<td>98,81</td>
+				<td>0,16</td>
+			</tr>
+			<tr res='t14.8.2007' >
+				<td><strong>14.8.2007</strong></td>
+				<td>4.988,43</td>
+				<td>0,02</td>
+				<td>98,66</td>
+				<td>- 0,04</td>
+			</tr>
+			<tr res='t13.8.2007' >
+				<td><strong>13.8.2007</strong></td>
+				<td>4.987,50</td>
+				<td>- 0,59</td>
+				<td>98,69</td>
+				<td>- 0,06</td>
+			</tr>
+			<tr res='t10.8.2007' >
+				<td><strong>10.8.2007</strong></td>
+				<td>5.016,91</td>
+				<td>- 0,31</td>
+				<td>98,75</td>
+				<td>- 0,19</td>
+			</tr>
+			<tr res='t9.8.2007' >
+				<td><strong>9.8.2007</strong></td>
+				<td>5.032,61</td>
+				<td>0,78</td>
+				<td>98,93</td>
+				<td>0,03</td>
+			</tr>
+			<tr res='t8.8.2007' >
+				<td><strong>8.8.2007</strong></td>
+				<td>4.993,75</td>
+				<td>- 0,01</td>
+				<td>98,90</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t7.8.2007' >
+				<td><strong>7.8.2007</strong></td>
+				<td>4.994,01</td>
+				<td>0,30</td>
+				<td>98,90</td>
+				<td>- 0,04</td>
+			</tr>
+			<tr res='t6.8.2007' >
+				<td><strong>6.8.2007</strong></td>
+				<td>4.978,89</td>
+				<td>- 0,79</td>
+				<td>98,94</td>
+				<td>0,12</td>
+			</tr>
+			<tr res='t3.8.2007' >
+				<td><strong>3.8.2007</strong></td>
+				<td>5.018,72</td>
+				<td>- 0,49</td>
+				<td>98,82</td>
+				<td>- 0,19</td>
+			</tr>
+			<tr res='t2.8.2007' >
+				<td><strong>2.8.2007</strong></td>
+				<td>5.043,49</td>
+				<td>- 0,01</td>
+				<td>99,01</td>
+				<td>- 0,18</td>
+			</tr>
+			<tr res='t1.8.2007' >
+				<td><strong>1.8.2007</strong></td>
+				<td>5.043,86</td>
+				<td>0,08</td>
+				<td>99,19</td>
+				<td>- 0,03</td>
+			</tr>
+			<tr res='t31.7.2007' >
+				<td><strong>31.7.2007</strong></td>
+				<td>5.039,89</td>
+				<td>1,07</td>
+				<td>99,22</td>
+				<td>- 0,12</td>
+			</tr>
+			<tr res='t30.7.2007' >
+				<td><strong>30.7.2007</strong></td>
+				<td>4.986,76</td>
+				<td>- 0,13</td>
+				<td>99,34</td>
+				<td>0,12</td>
+			</tr>
+			<tr res='t27.7.2007' >
+				<td><strong>27.7.2007</strong></td>
+				<td>4.993,20</td>
+				<td>0,88</td>
+				<td>99,22</td>
+				<td>0,20</td>
+			</tr>
+			<tr res='t26.7.2007' >
+				<td><strong>26.7.2007</strong></td>
+				<td>4.949,56</td>
+				<td>- 0,17</td>
+				<td>99,03</td>
+				<td>- 0,01</td>
+			</tr>
+			<tr res='t25.7.2007' >
+				<td><strong>25.7.2007</strong></td>
+				<td>4.958,09</td>
+				<td>- 0,73</td>
+				<td>99,04</td>
+				<td>0,16</td>
+			</tr>
+			<tr res='t24.7.2007' >
+				<td><strong>24.7.2007</strong></td>
+				<td>4.994,48</td>
+				<td>0,44</td>
+				<td>98,88</td>
+				<td>0,03</td>
+			</tr>
+			<tr res='t23.7.2007' >
+				<td><strong>23.7.2007</strong></td>
+				<td>4.972,45</td>
+				<td>3,14</td>
+				<td>98,85</td>
+				<td>0,05</td>
+			</tr>
+			<tr res='t20.7.2007' >
+				<td><strong>20.7.2007</strong></td>
+				<td>4.821,26</td>
+				<td>0,52</td>
+				<td>98,80</td>
+				<td>0,09</td>
+			</tr>
+			<tr res='t19.7.2007' >
+				<td><strong>19.7.2007</strong></td>
+				<td>4.796,48</td>
+				<td>- 0,32</td>
+				<td>98,72</td>
+				<td>- 0,02</td>
+			</tr>
+			<tr res='t18.7.2007' >
+				<td><strong>18.7.2007</strong></td>
+				<td>4.811,80</td>
+				<td>0,56</td>
+				<td>98,74</td>
+				<td>0,06</td>
+			</tr>
+			<tr res='t17.7.2007' >
+				<td><strong>17.7.2007</strong></td>
+				<td>4.785,11</td>
+				<td>0,21</td>
+				<td>98,68</td>
+				<td>0,03</td>
+			</tr>
+			<tr res='t16.7.2007' >
+				<td><strong>16.7.2007</strong></td>
+				<td>4.775,21</td>
+				<td>0,18</td>
+				<td>98,65</td>
+				<td>- 0,18</td>
+			</tr>
+			<tr res='t13.7.2007' >
+				<td><strong>13.7.2007</strong></td>
+				<td>4.766,49</td>
+				<td>0,40</td>
+				<td>98,82</td>
+				<td>0,02</td>
+			</tr>
+			<tr res='t12.7.2007' >
+				<td><strong>12.7.2007</strong></td>
+				<td>4.747,28</td>
+				<td>- 0,40</td>
+				<td>98,80</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t11.7.2007' >
+				<td><strong>11.7.2007</strong></td>
+				<td>4.766,51</td>
+				<td>- 0,12</td>
+				<td>98,79</td>
+				<td>- 0,06</td>
+			</tr>
+			<tr res='t10.7.2007' >
+				<td><strong>10.7.2007</strong></td>
+				<td>4.772,08</td>
+				<td>0,65</td>
+				<td>98,84</td>
+				<td>- 0,03</td>
+			</tr>
+			<tr res='t9.7.2007' >
+				<td><strong>9.7.2007</strong></td>
+				<td>4.741,48</td>
+				<td>- 0,38</td>
+				<td>98,87</td>
+				<td>- 0,14</td>
+			</tr>
+			<tr res='t6.7.2007' >
+				<td><strong>6.7.2007</strong></td>
+				<td>4.759,69</td>
+				<td>0,75</td>
+				<td>99,01</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t5.7.2007' >
+				<td><strong>5.7.2007</strong></td>
+				<td>4.724,45</td>
+				<td>0,02</td>
+				<td>99,00</td>
+				<td>- 0,05</td>
+			</tr>
+			<tr res='t4.7.2007' >
+				<td><strong>4.7.2007</strong></td>
+				<td>4.723,71</td>
+				<td>- 1,50</td>
+				<td>99,05</td>
+				<td>- 0,05</td>
+			</tr>
+			<tr res='t3.7.2007' >
+				<td><strong>3.7.2007</strong></td>
+				<td>4.795,73</td>
+				<td>- 0,08</td>
+				<td>99,11</td>
+				<td>0,05</td>
+			</tr>
+			<tr res='t2.7.2007' >
+				<td><strong>2.7.2007</strong></td>
+				<td>4.799,65</td>
+				<td>- 0,74</td>
+				<td>99,06</td>
+				<td>- 0,02</td>
+			</tr>
+			<tr res='t29.6.2007' >
+				<td><strong>29.6.2007</strong></td>
+				<td>4.835,28</td>
+				<td>- 0,24</td>
+				<td>99,08</td>
+				<td>0,10</td>
+			</tr>
+			<tr res='t28.6.2007' >
+				<td><strong>28.6.2007</strong></td>
+				<td>4.847,12</td>
+				<td>0,08</td>
+				<td>98,99</td>
+				<td>0,02</td>
+			</tr>
+			<tr res='t27.6.2007' >
+				<td><strong>27.6.2007</strong></td>
+				<td>4.843,34</td>
+				<td>- 0,41</td>
+				<td>98,97</td>
+				<td>- 0,11</td>
+			</tr>
+			<tr res='t26.6.2007' >
+				<td><strong>26.6.2007</strong></td>
+				<td>4.863,50</td>
+				<td>1,33</td>
+				<td>99,08</td>
+				<td>0,38</td>
+			</tr>
+			<tr res='t21.6.2007' >
+				<td><strong>21.6.2007</strong></td>
+				<td>4.799,86</td>
+				<td>0,09</td>
+				<td>98,70</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t20.6.2007' >
+				<td><strong>20.6.2007</strong></td>
+				<td>4.795,62</td>
+				<td>- 0,27</td>
+				<td>98,70</td>
+				<td>- 0,07</td>
+			</tr>
+			<tr res='t19.6.2007' >
+				<td><strong>19.6.2007</strong></td>
+				<td>4.808,72</td>
+				<td>0,58</td>
+				<td>98,76</td>
+				<td>- 0,03</td>
+			</tr>
+			<tr res='t18.6.2007' >
+				<td><strong>18.6.2007</strong></td>
+				<td>4.780,85</td>
+				<td>- 2,01</td>
+				<td>98,79</td>
+				<td>- 0,01</td>
+			</tr>
+			<tr res='t15.6.2007' >
+				<td><strong>15.6.2007</strong></td>
+				<td>4.878,90</td>
+				<td>1,55</td>
+				<td>98,79</td>
+				<td>0,03</td>
+			</tr>
+			<tr res='t14.6.2007' >
+				<td><strong>14.6.2007</strong></td>
+				<td>4.804,52</td>
+				<td>1,03</td>
+				<td>98,76</td>
+				<td>- 0,16</td>
+			</tr>
+			<tr res='t13.6.2007' >
+				<td><strong>13.6.2007</strong></td>
+				<td>4.755,41</td>
+				<td>- 1,10</td>
+				<td>98,93</td>
+				<td>- 0,21</td>
+			</tr>
+			<tr res='t12.6.2007' >
+				<td><strong>12.6.2007</strong></td>
+				<td>4.808,06</td>
+				<td>- 0,90</td>
+				<td>99,13</td>
+				<td>0,11</td>
+			</tr>
+			<tr res='t11.6.2007' >
+				<td><strong>11.6.2007</strong></td>
+				<td>4.851,78</td>
+				<td>- 0,76</td>
+				<td>99,02</td>
+				<td>- 0,34</td>
+			</tr>
+			<tr res='t8.6.2007' >
+				<td><strong>8.6.2007</strong></td>
+				<td>4.889,14</td>
+				<td>- 0,57</td>
+				<td>99,36</td>
+				<td>- 0,21</td>
+			</tr>
+			<tr res='t6.6.2007' >
+				<td><strong>6.6.2007</strong></td>
+				<td>4.917,23</td>
+				<td>- 0,89</td>
+				<td>99,58</td>
+				<td>- 0,29</td>
+			</tr>
+			<tr res='t5.6.2007' >
+				<td><strong>5.6.2007</strong></td>
+				<td>4.961,37</td>
+				<td>- 0,77</td>
+				<td>99,86</td>
+				<td>- 0,04</td>
+			</tr>
+			<tr res='t4.6.2007' >
+				<td><strong>4.6.2007</strong></td>
+				<td>5.000,12</td>
+				<td>- 0,57</td>
+				<td>99,90</td>
+				<td>- 0,11</td>
+			</tr>
+			<tr res='t1.6.2007' >
+				<td><strong>1.6.2007</strong></td>
+				<td>5.028,94</td>
+				<td>1,05</td>
+				<td>100,01</td>
+				<td>- 0,01</td>
+			</tr>
+			<tr res='t31.5.2007' >
+				<td><strong>31.5.2007</strong></td>
+				<td>4.976,79</td>
+				<td>0,34</td>
+				<td>100,02</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t30.5.2007' >
+				<td><strong>30.5.2007</strong></td>
+				<td>4.960,07</td>
+				<td>- 0,26</td>
+				<td>100,01</td>
+				<td>- 0,03</td>
+			</tr>
+			<tr res='t29.5.2007' >
+				<td><strong>29.5.2007</strong></td>
+				<td>4.973,09</td>
+				<td>1,84</td>
+				<td>100,04</td>
+				<td>- 0,11</td>
+			</tr>
+			<tr res='t28.5.2007' >
+				<td><strong>28.5.2007</strong></td>
+				<td>4.883,39</td>
+				<td>- 1,63</td>
+				<td>100,15</td>
+				<td>- 0,05</td>
+			</tr>
+			<tr res='t25.5.2007' >
+				<td><strong>25.5.2007</strong></td>
+				<td>4.964,32</td>
+				<td>- 1,84</td>
+				<td>100,20</td>
+				<td>0,06</td>
+			</tr>
+			<tr res='t24.5.2007' >
+				<td><strong>24.5.2007</strong></td>
+				<td>5.057,57</td>
+				<td>0,30</td>
+				<td>100,14</td>
+				<td>- 0,06</td>
+			</tr>
+			<tr res='t23.5.2007' >
+				<td><strong>23.5.2007</strong></td>
+				<td>5.042,21</td>
+				<td>- 0,16</td>
+				<td>100,20</td>
+				<td>0,03</td>
+			</tr>
+			<tr res='t22.5.2007' >
+				<td><strong>22.5.2007</strong></td>
+				<td>5.050,19</td>
+				<td>- 0,87</td>
+				<td>100,17</td>
+				<td>0,05</td>
+			</tr>
+			<tr res='t21.5.2007' >
+				<td><strong>21.5.2007</strong></td>
+				<td>5.094,74</td>
+				<td>- 0,11</td>
+				<td>100,12</td>
+				<td>0,03</td>
+			</tr>
+			<tr res='t18.5.2007' >
+				<td><strong>18.5.2007</strong></td>
+				<td>5.100,33</td>
+				<td>0,41</td>
+				<td>100,09</td>
+				<td>- 0,21</td>
+			</tr>
+			<tr res='t17.5.2007' >
+				<td><strong>17.5.2007</strong></td>
+				<td>5.079,34</td>
+				<td>- 1,15</td>
+				<td>100,30</td>
+				<td>0,06</td>
+			</tr>
+			<tr res='t16.5.2007' >
+				<td><strong>16.5.2007</strong></td>
+				<td>5.138,45</td>
+				<td>1,54</td>
+				<td>100,24</td>
+				<td>0,14</td>
+			</tr>
+			<tr res='t15.5.2007' >
+				<td><strong>15.5.2007</strong></td>
+				<td>5.060,51</td>
+				<td>1,37</td>
+				<td>100,10</td>
+				<td>0,06</td>
+			</tr>
+			<tr res='t14.5.2007' >
+				<td><strong>14.5.2007</strong></td>
+				<td>4.992,17</td>
+				<td>2,20</td>
+				<td>100,04</td>
+				<td>- 0,02</td>
+			</tr>
+			<tr res='t11.5.2007' >
+				<td><strong>11.5.2007</strong></td>
+				<td>4.884,87</td>
+				<td>0,57</td>
+				<td>100,07</td>
+				<td>- 0,03</td>
+			</tr>
+			<tr res='t10.5.2007' >
+				<td><strong>10.5.2007</strong></td>
+				<td>4.857,39</td>
+				<td>0,06</td>
+				<td>100,10</td>
+				<td>- 0,09</td>
+			</tr>
+			<tr res='t9.5.2007' >
+				<td><strong>9.5.2007</strong></td>
+				<td>4.854,66</td>
+				<td>0,67</td>
+				<td>100,19</td>
+				<td>- 0,10</td>
+			</tr>
+			<tr res='t8.5.2007' >
+				<td><strong>8.5.2007</strong></td>
+				<td>4.822,52</td>
+				<td>0,71</td>
+				<td>100,28</td>
+				<td>0,05</td>
+			</tr>
+			<tr res='t7.5.2007' >
+				<td><strong>7.5.2007</strong></td>
+				<td>4.788,66</td>
+				<td>2,31</td>
+				<td>100,23</td>
+				<td>- 0,13</td>
+			</tr>
+			<tr res='t4.5.2007' >
+				<td><strong>4.5.2007</strong></td>
+				<td>4.680,55</td>
+				<td>0,57</td>
+				<td>100,36</td>
+				<td>0,02</td>
+			</tr>
+			<tr res='t3.5.2007' >
+				<td><strong>3.5.2007</strong></td>
+				<td>4.654,06</td>
+				<td>0,45</td>
+				<td>100,34</td>
+				<td>- 0,03</td>
+			</tr>
+			<tr res='t2.5.2007' >
+				<td><strong>2.5.2007</strong></td>
+				<td>4.633,29</td>
+				<td>0,44</td>
+				<td>100,37</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t30.4.2007' >
+				<td><strong>30.4.2007</strong></td>
+				<td>4.613,11</td>
+				<td>- 0,02</td>
+				<td>100,36</td>
+				<td>0,03</td>
+			</tr>
+			<tr res='t27.4.2007' >
+				<td><strong>27.4.2007</strong></td>
+				<td>4.614,09</td>
+				<td>0,50</td>
+				<td>100,33</td>
+				<td>0,07</td>
+			</tr>
+			<tr res='t26.4.2007' >
+				<td><strong>26.4.2007</strong></td>
+				<td>4.591,22</td>
+				<td>0,42</td>
+				<td>100,25</td>
+				<td>0,05</td>
+			</tr>
+			<tr res='t25.4.2007' >
+				<td><strong>25.4.2007</strong></td>
+				<td>4.571,82</td>
+				<td>- 0,02</td>
+				<td>100,21</td>
+				<td>- 0,07</td>
+			</tr>
+			<tr res='t24.4.2007' >
+				<td><strong>24.4.2007</strong></td>
+				<td>4.572,79</td>
+				<td>- 0,79</td>
+				<td>100,28</td>
+				<td>0,08</td>
+			</tr>
+			<tr res='t23.4.2007' >
+				<td><strong>23.4.2007</strong></td>
+				<td>4.609,07</td>
+				<td>0,46</td>
+				<td>100,20</td>
+				<td>0,16</td>
+			</tr>
+			<tr res='t20.4.2007' >
+				<td><strong>20.4.2007</strong></td>
+				<td>4.588,09</td>
+				<td>0,25</td>
+				<td>100,04</td>
+				<td>0,15</td>
+			</tr>
+			<tr res='t19.4.2007' >
+				<td><strong>19.4.2007</strong></td>
+				<td>4.576,63</td>
+				<td>- 1,27</td>
+				<td>99,89</td>
+				<td>0,24</td>
+			</tr>
+			<tr res='t18.4.2007' >
+				<td><strong>18.4.2007</strong></td>
+				<td>4.635,57</td>
+				<td>- 1,60</td>
+				<td>99,65</td>
+				<td>0,16</td>
+			</tr>
+			<tr res='t17.4.2007' >
+				<td><strong>17.4.2007</strong></td>
+				<td>4.710,73</td>
+				<td>1,04</td>
+				<td>99,49</td>
+				<td>- 0,09</td>
+			</tr>
+			<tr res='t16.4.2007' >
+				<td><strong>16.4.2007</strong></td>
+				<td>4.662,34</td>
+				<td>0,27</td>
+				<td>99,58</td>
+				<td>- 0,14</td>
+			</tr>
+			<tr res='t13.4.2007' >
+				<td><strong>13.4.2007</strong></td>
+				<td>4.649,61</td>
+				<td>1,15</td>
+				<td>99,72</td>
+				<td>- 0,06</td>
+			</tr>
+			<tr res='t12.4.2007' >
+				<td><strong>12.4.2007</strong></td>
+				<td>4.596,87</td>
+				<td>0,59</td>
+				<td>99,78</td>
+				<td>0,16</td>
+			</tr>
+			<tr res='t11.4.2007' >
+				<td><strong>11.4.2007</strong></td>
+				<td>4.570,06</td>
+				<td>1,62</td>
+				<td>99,62</td>
+				<td>- 0,25</td>
+			</tr>
+			<tr res='t10.4.2007' >
+				<td><strong>10.4.2007</strong></td>
+				<td>4.497,23</td>
+				<td>2,62</td>
+				<td>99,87</td>
+				<td>- 0,23</td>
+			</tr>
+			<tr res='t5.4.2007' >
+				<td><strong>5.4.2007</strong></td>
+				<td>4.382,58</td>
+				<td>1,04</td>
+				<td>100,10</td>
+				<td>- 0,20</td>
+			</tr>
+			<tr res='t4.4.2007' >
+				<td><strong>4.4.2007</strong></td>
+				<td>4.337,67</td>
+				<td>1,53</td>
+				<td>100,30</td>
+				<td>- 0,13</td>
+			</tr>
+			<tr res='t3.4.2007' >
+				<td><strong>3.4.2007</strong></td>
+				<td>4.272,28</td>
+				<td>1,70</td>
+				<td>100,43</td>
+				<td>- 0,18</td>
+			</tr>
+			<tr res='t2.4.2007' >
+				<td><strong>2.4.2007</strong></td>
+				<td>4.200,87</td>
+				<td>- 0,87</td>
+				<td>100,61</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t30.3.2007' >
+				<td><strong>30.3.2007</strong></td>
+				<td>4.237,67</td>
+				<td>0,82</td>
+				<td>100,60</td>
+				<td>- 0,08</td>
+			</tr>
+			<tr res='t29.3.2007' >
+				<td><strong>29.3.2007</strong></td>
+				<td>4.203,40</td>
+				<td>1,17</td>
+				<td>100,68</td>
+				<td>- 0,04</td>
+			</tr>
+			<tr res='t28.3.2007' >
+				<td><strong>28.3.2007</strong></td>
+				<td>4.154,66</td>
+				<td>0,97</td>
+				<td>100,72</td>
+				<td>- 0,02</td>
+			</tr>
+			<tr res='t27.3.2007' >
+				<td><strong>27.3.2007</strong></td>
+				<td>4.114,61</td>
+				<td>0,56</td>
+				<td>100,74</td>
+				<td>- 0,07</td>
+			</tr>
+			<tr res='t26.3.2007' >
+				<td><strong>26.3.2007</strong></td>
+				<td>4.091,56</td>
+				<td>1,03</td>
+				<td>100,81</td>
+				<td>- 0,19</td>
+			</tr>
+			<tr res='t23.3.2007' >
+				<td><strong>23.3.2007</strong></td>
+				<td>4.049,79</td>
+				<td>1,03</td>
+				<td>101,00</td>
+				<td>- 0,10</td>
+			</tr>
+			<tr res='t22.3.2007' >
+				<td><strong>22.3.2007</strong></td>
+				<td>4.008,53</td>
+				<td>2,10</td>
+				<td>101,10</td>
+				<td>- 0,07</td>
+			</tr>
+			<tr res='t21.3.2007' >
+				<td><strong>21.3.2007</strong></td>
+				<td>3.926,09</td>
+				<td>- 0,09</td>
+				<td>101,17</td>
+				<td>- 0,04</td>
+			</tr>
+			<tr res='t20.3.2007' >
+				<td><strong>20.3.2007</strong></td>
+				<td>3.929,69</td>
+				<td>- 0,17</td>
+				<td>101,21</td>
+				<td>- 0,11</td>
+			</tr>
+			<tr res='t19.3.2007' >
+				<td><strong>19.3.2007</strong></td>
+				<td>3.936,30</td>
+				<td>0,21</td>
+				<td>101,33</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t16.3.2007' >
+				<td><strong>16.3.2007</strong></td>
+				<td>3.927,75</td>
+				<td>0,82</td>
+				<td>101,32</td>
+				<td>- 0,15</td>
+			</tr>
+			<tr res='t15.3.2007' >
+				<td><strong>15.3.2007</strong></td>
+				<td>3.895,73</td>
+				<td>0,33</td>
+				<td>101,48</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t14.3.2007' >
+				<td><strong>14.3.2007</strong></td>
+				<td>3.882,98</td>
+				<td>- 1,41</td>
+				<td>101,47</td>
+				<td>0,22</td>
+			</tr>
+			<tr res='t13.3.2007' >
+				<td><strong>13.3.2007</strong></td>
+				<td>3.938,45</td>
+				<td>0,58</td>
+				<td>101,24</td>
+				<td>- 0,03</td>
+			</tr>
+			<tr res='t12.3.2007' >
+				<td><strong>12.3.2007</strong></td>
+				<td>3.915,76</td>
+				<td>0,14</td>
+				<td>101,27</td>
+				<td>- 0,22</td>
+			</tr>
+			<tr res='t9.3.2007' >
+				<td><strong>9.3.2007</strong></td>
+				<td>3.910,10</td>
+				<td>0,95</td>
+				<td>101,50</td>
+				<td>- 0,10</td>
+			</tr>
+			<tr res='t8.3.2007' >
+				<td><strong>8.3.2007</strong></td>
+				<td>3.873,27</td>
+				<td>- 0,19</td>
+				<td>101,60</td>
+				<td>0,02</td>
+			</tr>
+			<tr res='t7.3.2007' >
+				<td><strong>7.3.2007</strong></td>
+				<td>3.880,82</td>
+				<td>0,78</td>
+				<td>101,58</td>
+				<td>0,10</td>
+			</tr>
+			<tr res='t6.3.2007' >
+				<td><strong>6.3.2007</strong></td>
+				<td>3.850,69</td>
+				<td>0,34</td>
+				<td>101,47</td>
+				<td>0,10</td>
+			</tr>
+			<tr res='t5.3.2007' >
+				<td><strong>5.3.2007</strong></td>
+				<td>3.837,46</td>
+				<td>- 1,24</td>
+				<td>101,37</td>
+				<td>0,07</td>
+			</tr>
+			<tr res='t2.3.2007' >
+				<td><strong>2.3.2007</strong></td>
+				<td>3.885,75</td>
+				<td>- 0,58</td>
+				<td>101,30</td>
+				<td>0,04</td>
+			</tr>
+			<tr res='t1.3.2007' >
+				<td><strong>1.3.2007</strong></td>
+				<td>3.908,32</td>
+				<td>2,93</td>
+				<td>101,26</td>
+				<td>0,09</td>
+			</tr>
+			<tr res='t28.2.2007' >
+				<td><strong>28.2.2007</strong></td>
+				<td>3.797,06</td>
+				<td>- 3,08</td>
+				<td>101,17</td>
+				<td>0,11</td>
+			</tr>
+			<tr res='t27.2.2007' >
+				<td><strong>27.2.2007</strong></td>
+				<td>3.917,77</td>
+				<td>- 1,46</td>
+				<td>101,06</td>
+				<td>- 0,02</td>
+			</tr>
+			<tr res='t26.2.2007' >
+				<td><strong>26.2.2007</strong></td>
+				<td>3.975,77</td>
+				<td>0,57</td>
+				<td>101,08</td>
+				<td>0,24</td>
+			</tr>
+			<tr res='t23.2.2007' >
+				<td><strong>23.2.2007</strong></td>
+				<td>3.953,31</td>
+				<td>0,39</td>
+				<td>100,84</td>
+				<td>0,05</td>
+			</tr>
+			<tr res='t22.2.2007' >
+				<td><strong>22.2.2007</strong></td>
+				<td>3.938,11</td>
+				<td>0,00</td>
+				<td>100,79</td>
+				<td>- 0,04</td>
+			</tr>
+			<tr res='t21.2.2007' >
+				<td><strong>21.2.2007</strong></td>
+				<td>3.938,30</td>
+				<td>1,95</td>
+				<td>100,83</td>
+				<td>- 0,01</td>
+			</tr>
+			<tr res='t20.2.2007' >
+				<td><strong>20.2.2007</strong></td>
+				<td>3.862,94</td>
+				<td>1,05</td>
+				<td>100,84</td>
+				<td>0,03</td>
+			</tr>
+			<tr res='t19.2.2007' >
+				<td><strong>19.2.2007</strong></td>
+				<td>3.822,93</td>
+				<td>0,53</td>
+				<td>100,81</td>
+				<td>0,03</td>
+			</tr>
+			<tr res='t16.2.2007' >
+				<td><strong>16.2.2007</strong></td>
+				<td>3.802,84</td>
+				<td>0,22</td>
+				<td>100,78</td>
+				<td>0,27</td>
+			</tr>
+			<tr res='t15.2.2007' >
+				<td><strong>15.2.2007</strong></td>
+				<td>3.794,38</td>
+				<td>0,22</td>
+				<td>100,51</td>
+				<td>0,15</td>
+			</tr>
+			<tr res='t14.2.2007' >
+				<td><strong>14.2.2007</strong></td>
+				<td>3.786,11</td>
+				<td>0,89</td>
+				<td>100,36</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t13.2.2007' >
+				<td><strong>13.2.2007</strong></td>
+				<td>3.752,84</td>
+				<td>0,32</td>
+				<td>100,35</td>
+				<td>0,04</td>
+			</tr>
+			<tr res='t12.2.2007' >
+				<td><strong>12.2.2007</strong></td>
+				<td>3.740,73</td>
+				<td>- 0,64</td>
+				<td>100,30</td>
+				<td>- 0,01</td>
+			</tr>
+			<tr res='t9.2.2007' >
+				<td><strong>9.2.2007</strong></td>
+				<td>3.764,78</td>
+				<td>1,06</td>
+				<td>100,31</td>
+				<td>0,10</td>
+			</tr>
+			<tr res='t8.2.2007' >
+				<td><strong>8.2.2007</strong></td>
+				<td>3.725,35</td>
+				<td>- 0,94</td>
+				<td>100,22</td>
+				<td>- 0,12</td>
+			</tr>
+			<tr res='t7.2.2007' >
+				<td><strong>7.2.2007</strong></td>
+				<td>3.760,78</td>
+				<td>1,50</td>
+				<td>100,33</td>
+				<td>- 0,10</td>
+			</tr>
+			<tr res='t6.2.2007' >
+				<td><strong>6.2.2007</strong></td>
+				<td>3.705,15</td>
+				<td>0,11</td>
+				<td>100,43</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t5.2.2007' >
+				<td><strong>5.2.2007</strong></td>
+				<td>3.701,18</td>
+				<td>- 0,01</td>
+				<td>100,42</td>
+				<td>0,27</td>
+			</tr>
+			<tr res='t2.2.2007' >
+				<td><strong>2.2.2007</strong></td>
+				<td>3.701,68</td>
+				<td>- 0,40</td>
+				<td>100,15</td>
+				<td>- 0,11</td>
+			</tr>
+			<tr res='t1.2.2007' >
+				<td><strong>1.2.2007</strong></td>
+				<td>3.716,71</td>
+				<td>- 1,22</td>
+				<td>100,25</td>
+				<td>0,02</td>
+			</tr>
+			<tr res='t31.1.2007' >
+				<td><strong>31.1.2007</strong></td>
+				<td>3.762,56</td>
+				<td>2,77</td>
+				<td>100,23</td>
+				<td>- 0,30</td>
+			</tr>
+			<tr res='t30.1.2007' >
+				<td><strong>30.1.2007</strong></td>
+				<td>3.661,08</td>
+				<td>2,38</td>
+				<td>100,54</td>
+				<td>0,02</td>
+			</tr>
+			<tr res='t29.1.2007' >
+				<td><strong>29.1.2007</strong></td>
+				<td>3.576,14</td>
+				<td>2,25</td>
+				<td>100,52</td>
+				<td>0,00</td>
+			</tr>
+			<tr res='t26.1.2007' >
+				<td><strong>26.1.2007</strong></td>
+				<td>3.497,36</td>
+				<td>0,88</td>
+				<td>100,52</td>
+				<td>0,05</td>
+			</tr>
+			<tr res='t25.1.2007' >
+				<td><strong>25.1.2007</strong></td>
+				<td>3.466,77</td>
+				<td>- 0,68</td>
+				<td>100,47</td>
+				<td>- 0,16</td>
+			</tr>
+			<tr res='t24.1.2007' >
+				<td><strong>24.1.2007</strong></td>
+				<td>3.490,52</td>
+				<td>0,35</td>
+				<td>100,64</td>
+				<td>- 0,27</td>
+			</tr>
+			<tr res='t23.1.2007' >
+				<td><strong>23.1.2007</strong></td>
+				<td>3.478,34</td>
+				<td>0,69</td>
+				<td>100,91</td>
+				<td>0,10</td>
+			</tr>
+			<tr res='t22.1.2007' >
+				<td><strong>22.1.2007</strong></td>
+				<td>3.454,43</td>
+				<td>0,73</td>
+				<td>100,81</td>
+				<td>0,02</td>
+			</tr>
+			<tr res='t19.1.2007' >
+				<td><strong>19.1.2007</strong></td>
+				<td>3.429,39</td>
+				<td>0,57</td>
+				<td>100,79</td>
+				<td>- 0,01</td>
+			</tr>
+			<tr res='t18.1.2007' >
+				<td><strong>18.1.2007</strong></td>
+				<td>3.410,03</td>
+				<td>1,23</td>
+				<td>100,80</td>
+				<td>- 0,01</td>
+			</tr>
+			<tr res='t17.1.2007' >
+				<td><strong>17.1.2007</strong></td>
+				<td>3.368,48</td>
+				<td>0,47</td>
+				<td>100,81</td>
+				<td>- 0,04</td>
+			</tr>
+			<tr res='t16.1.2007' >
+				<td><strong>16.1.2007</strong></td>
+				<td>3.352,69</td>
+				<td>1,03</td>
+				<td>100,85</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t15.1.2007' >
+				<td><strong>15.1.2007</strong></td>
+				<td>3.318,52</td>
+				<td>0,98</td>
+				<td>100,84</td>
+				<td>- 0,21</td>
+			</tr>
+			<tr res='t12.1.2007' >
+				<td><strong>12.1.2007</strong></td>
+				<td>3.286,28</td>
+				<td>0,45</td>
+				<td>101,05</td>
+				<td>0,05</td>
+			</tr>
+			<tr res='t11.1.2007' >
+				<td><strong>11.1.2007</strong></td>
+				<td>3.271,45</td>
+				<td>- 0,20</td>
+				<td>101,00</td>
+				<td>- 0,01</td>
+			</tr>
+			<tr res='t10.1.2007' >
+				<td><strong>10.1.2007</strong></td>
+				<td>3.277,85</td>
+				<td>- 0,08</td>
+				<td>101,02</td>
+				<td>- 0,14</td>
+			</tr>
+			<tr res='t9.1.2007' >
+				<td><strong>9.1.2007</strong></td>
+				<td>3.280,36</td>
+				<td>0,58</td>
+				<td>101,16</td>
+				<td>0,04</td>
+			</tr>
+			<tr res='t8.1.2007' >
+				<td><strong>8.1.2007</strong></td>
+				<td>3.261,54</td>
+				<td>0,89</td>
+				<td>101,12</td>
+				<td>- 0,03</td>
+			</tr>
+			<tr res='t5.1.2007' >
+				<td><strong>5.1.2007</strong></td>
+				<td>3.232,70</td>
+				<td>0,52</td>
+				<td>101,15</td>
+				<td>- 0,02</td>
+			</tr>
+			<tr res='t4.1.2007' >
+				<td><strong>4.1.2007</strong></td>
+				<td>3.215,90</td>
+				<td>- 0,03</td>
+				<td>101,17</td>
+				<td>- 0,03</td>
+			</tr>
+			<tr res='t3.1.2007' >
+				<td><strong>3.1.2007</strong></td>
+				<td>3.216,99</td>
+				<td>0,06</td>
+				<td>101,20</td>
+				<td>- 0,01</td>
+			</tr>
+			<tr res='t2.1.2007' >
+				<td><strong>2.1.2007</strong></td>
+				<td>3.214,93</td>
+				<td>0,17</td>
+				<td>101,21</td>
+				<td>0,16</td>
+			</tr>
+			<tr res='t29.12.2006' >
+				<td><strong>29.12.2006</strong></td>
+				<td>3.209,48</td>
+				<td>0,21</td>
+				<td>101,06</td>
+				<td>0,07</td>
+			</tr>
+			<tr res='t28.12.2006' >
+				<td><strong>28.12.2006</strong></td>
+				<td>3.202,74</td>
+				<td>- 0,24</td>
+				<td>100,99</td>
+				<td>- 0,07</td>
+			</tr>
+			<tr res='t27.12.2006' >
+				<td><strong>27.12.2006</strong></td>
+				<td>3.210,58</td>
+				<td>0,02</td>
+				<td>101,06</td>
+				<td>0,08</td>
+			</tr>
+			<tr res='t22.12.2006' >
+				<td><strong>22.12.2006</strong></td>
+				<td>3.209,93</td>
+				<td>- 0,11</td>
+				<td>100,98</td>
+				<td>- 0,02</td>
+			</tr>
+			<tr res='t21.12.2006' >
+				<td><strong>21.12.2006</strong></td>
+				<td>3.213,60</td>
+				<td>0,47</td>
+				<td>100,99</td>
+				<td>- 0,20</td>
+			</tr>
+			<tr res='t20.12.2006' >
+				<td><strong>20.12.2006</strong></td>
+				<td>3.198,67</td>
+				<td>- 0,59</td>
+				<td>101,20</td>
+				<td>- 0,17</td>
+			</tr>
+			<tr res='t19.12.2006' >
+				<td><strong>19.12.2006</strong></td>
+				<td>3.217,79</td>
+				<td>0,48</td>
+				<td>101,37</td>
+				<td>- 0,01</td>
+			</tr>
+			<tr res='t18.12.2006' >
+				<td><strong>18.12.2006</strong></td>
+				<td>3.202,45</td>
+				<td>- 0,22</td>
+				<td>101,38</td>
+				<td>0,02</td>
+			</tr>
+			<tr res='t15.12.2006' >
+				<td><strong>15.12.2006</strong></td>
+				<td>3.209,37</td>
+				<td>0,18</td>
+				<td>101,35</td>
+				<td>- 0,20</td>
+			</tr>
+			<tr res='t14.12.2006' >
+				<td><strong>14.12.2006</strong></td>
+				<td>3.203,76</td>
+				<td>- 0,43</td>
+				<td>101,56</td>
+				<td>- 0,08</td>
+			</tr>
+			<tr res='t13.12.2006' >
+				<td><strong>13.12.2006</strong></td>
+				<td>3.217,75</td>
+				<td>0,42</td>
+				<td>101,64</td>
+				<td>- 0,02</td>
+			</tr>
+			<tr res='t12.12.2006' >
+				<td><strong>12.12.2006</strong></td>
+				<td>3.204,35</td>
+				<td>- 0,26</td>
+				<td>101,66</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t11.12.2006' >
+				<td><strong>11.12.2006</strong></td>
+				<td>3.212,66</td>
+				<td>0,24</td>
+				<td>101,65</td>
+				<td>- 0,07</td>
+			</tr>
+			<tr res='t8.12.2006' >
+				<td><strong>8.12.2006</strong></td>
+				<td>3.205,09</td>
+				<td>0,12</td>
+				<td>101,72</td>
+				<td>- 0,12</td>
+			</tr>
+			<tr res='t7.12.2006' >
+				<td><strong>7.12.2006</strong></td>
+				<td>3.201,15</td>
+				<td>0,11</td>
+				<td>101,84</td>
+				<td>0,02</td>
+			</tr>
+			<tr res='t6.12.2006' >
+				<td><strong>6.12.2006</strong></td>
+				<td>3.197,76</td>
+				<td>- 0,62</td>
+				<td>101,82</td>
+				<td>- 0,10</td>
+			</tr>
+			<tr res='t5.12.2006' >
+				<td><strong>5.12.2006</strong></td>
+				<td>3.217,56</td>
+				<td>- 0,56</td>
+				<td>101,92</td>
+				<td>0,06</td>
+			</tr>
+			<tr res='t4.12.2006' >
+				<td><strong>4.12.2006</strong></td>
+				<td>3.235,59</td>
+				<td>- 0,94</td>
+				<td>101,86</td>
+				<td>0,04</td>
+			</tr>
+			<tr res='t1.12.2006' >
+				<td><strong>1.12.2006</strong></td>
+				<td>3.266,31</td>
+				<td>0,33</td>
+				<td>101,82</td>
+				<td>- 0,12</td>
+			</tr>
+			<tr res='t30.11.2006' >
+				<td><strong>30.11.2006</strong></td>
+				<td>3.255,68</td>
+				<td>0,87</td>
+				<td>101,94</td>
+				<td>0,06</td>
+			</tr>
+			<tr res='t29.11.2006' >
+				<td><strong>29.11.2006</strong></td>
+				<td>3.227,57</td>
+				<td>- 0,40</td>
+				<td>101,88</td>
+				<td>0,18</td>
+			</tr>
+			<tr res='t28.11.2006' >
+				<td><strong>28.11.2006</strong></td>
+				<td>3.240,50</td>
+				<td>0,94</td>
+				<td>101,69</td>
+				<td>0,07</td>
+			</tr>
+			<tr res='t27.11.2006' >
+				<td><strong>27.11.2006</strong></td>
+				<td>3.210,17</td>
+				<td>0,31</td>
+				<td>101,62</td>
+				<td>0,14</td>
+			</tr>
+			<tr res='t24.11.2006' >
+				<td><strong>24.11.2006</strong></td>
+				<td>3.200,09</td>
+				<td>- 0,63</td>
+				<td>101,48</td>
+				<td>- 0,06</td>
+			</tr>
+			<tr res='t23.11.2006' >
+				<td><strong>23.11.2006</strong></td>
+				<td>3.220,29</td>
+				<td>0,27</td>
+				<td>101,54</td>
+				<td>- 0,13</td>
+			</tr>
+			<tr res='t22.11.2006' >
+				<td><strong>22.11.2006</strong></td>
+				<td>3.211,59</td>
+				<td>- 0,09</td>
+				<td>101,67</td>
+				<td>0,01</td>
+			</tr>
+			<tr res='t21.11.2006' >
+				<td><strong>21.11.2006</strong></td>
+				<td>3.214,62</td>
+				<td>0,49</td>
+				<td>101,67</td>
+				<td>- 0,09</td>
+			</tr>
+			<tr res='t20.11.2006' >
+				<td><strong>20.11.2006</strong></td>
+				<td>3.199,03</td>
+				<td>0,46</td>
+				<td>101,75</td>
+				<td>- 0,11</td>
+			</tr>
+			<tr res='t17.11.2006' >
+				<td><strong>17.11.2006</strong></td>
+				<td>3.184,38</td>
+				<td>0,94</td>
+				<td>101,86</td>
+				<td>- 0,04</td>
+			</tr>
+			<tr res='t16.11.2006' >
+				<td><strong>16.11.2006</strong></td>
+				<td>3.154,77</td>
+				<td>0,77</td>
+				<td>101,90</td>
+				<td>0,03</td>
+			</tr>
+			<tr res='t15.11.2006' >
+				<td><strong>15.11.2006</strong></td>
+				<td>3.130,65</td>
+				<td>1,66</td>
+				<td>101,87</td>
+				<td>0,18</td>
+			</tr>
+			<tr res='t14.11.2006' >
+				<td><strong>14.11.2006</strong></td>
+				<td>3.079,58</td>
+				<td>- 0,77</td>
+				<td>101,69</td>
+				<td>0,03</td>
+			</tr>
+			<tr res='t13.11.2006' >
+				<td><strong>13.11.2006</strong></td>
+				<td>3.103,33</td>
+				<td>- 1,71</td>
+				<td>101,66</td>
+				<td>0,04</td>
+			</tr>
+			<tr res='t10.11.2006' >
+				<td><strong>10.11.2006</strong></td>
+				<td>3.157,47</td>
+				<td>- 0,65</td>
+				<td>101,62</td>
+				<td>0,10</td>
+			</tr>
+			<tr res='t9.11.2006' >
+				<td><strong>9.11.2006</strong></td>
+				<td>3.178,18</td>
+				<td>- 0,05</td>
+				<td>101,52</td>
+				<td>0,15</td>
+			</tr>
+			<tr res='t8.11.2006' >
+				<td><strong>8.11.2006</strong></td>
+				<td>3.179,81</td>
+				<td>- 0,24</td>
+				<td>101,37</td>
+				<td>0,02</td>
+			</tr>
+			<tr res='t7.11.2006' >
+				<td><strong>7.11.2006</strong></td>
+				<td>3.187,55</td>
+				<td>- 0,02</td>
+				<td>101,36</td>
+				<td>0,03</td>
+			</tr>
+			<tr res='t6.11.2006' >
+				<td><strong>6.11.2006</strong></td>
+				<td>3.188,18</td>
+				<td>- 0,92</td>
+				<td>101,33</td>
+				<td>0,07</td>
+			</tr>
+			<tr res='t3.11.2006' >
+				<td><strong>3.11.2006</strong></td>
+				<td>3.217,87</td>
+				<td>- 0,88</td>
+				<td>101,26</td>
+				<td>0,12</td>
+			</tr>
+			<tr res='t2.11.2006' >
+				<td><strong>2.11.2006</strong></td>
+				<td>3.246,45</td>
+				<td>- 0,38</td>
+				<td>101,14</td>
+				<td>0,14</td>
+			</tr>
+			<tr res='t31.10.2006' >
+				<td><strong>31.10.2006</strong></td>
+				<td>3.258,97</td>
+				<td>0,38</td>
+				<td>100,99</td>
+				<td>0,20</td>
+			</tr>
+			<tr res='t30.10.2006' >
+				<td><strong>30.10.2006</strong></td>
+				<td>3.246,70</td>
+				<td>0,52</td>
+				<td>100,79</td>
+				<td>0,22</td>
+			</tr>
+			<tr res='t27.10.2006' >
+				<td><strong>27.10.2006</strong></td>
+				<td>3.229,77</td>
+				<td>- 0,07</td>
+				<td>100,57</td>
+				<td>0,07</td>
+			</tr>
+			<tr res='t26.10.2006' >
+				<td><strong>26.10.2006</strong></td>
+				<td>3.232,04</td>
+				<td>- 0,09</td>
+				<td>100,50</td>
+				<td>0,09</td>
+			</tr>
+			<tr res='t25.10.2006' >
+				<td><strong>25.10.2006</strong></td>
+				<td>3.234,83</td>
+				<td>- 1,22</td>
+				<td>100,41</td>
+				<td>- 0,18</td>
+			</tr>
+			<tr res='t24.10.2006' >
+				<td><strong>24.10.2006</strong></td>
+				<td>3.274,70</td>
+				<td>- 0,35</td>
+				<td>100,59</td>
+				<td>- 0,04</td>
+			</tr>
+			<tr res='t23.10.2006' >
+				<td><strong>23.10.2006</strong></td>
+				<td>3.286,33</td>
+				<td>1,30</td>
+				<td>100,63</td>
+				<td>0,02</td>
+			</tr>
+			<tr res='t20.10.2006' >
+				<td><strong>20.10.2006</strong></td>
+				<td>3.244,31</td>
+				<td>0,69</td>
+				<td>100,61</td>
+				<td>0,06</td>
+			</tr>
+			<tr res='t19.10.2006' >
+				<td><strong>19.10.2006</strong></td>
+				<td>3.222,01</td>
+				<td>1,09</td>
+				<td>100,56</td>
+				<td>0,14</td>
+			</tr>
+			<tr res='t18.10.2006' >
+				<td><strong>18.10.2006</strong></td>
+				<td>3.187,42</td>
+				<td>0,43</td>
+				<td>100,42</td>
+				<td>- 0,01</td>
+			</tr>
+			<tr res='t17.10.2006' >
+				<td><strong>17.10.2006</strong></td>
+				<td>3.173,85</td>
+				<td>- 0,67</td>
+				<td>100,42</td>
+				<td>- 0,16</td>
+			</tr>
+			<tr res='t16.10.2006' >
+				<td><strong>16.10.2006</strong></td>
+				<td>3.195,32</td>
+				<td>- 0,91</td>
+				<td>100,58</td>
+				<td>- 0,02</td>
+			</tr>
+			<tr res='t13.10.2006' >
+				<td><strong>13.10.2006</strong></td>
+				<td>3.224,77</td>
+				<td>0,95</td>
+				<td>100,60</td>
+				<td>- 0,01</td>
+			</tr>
+			<tr res='t12.10.2006' >
+				<td><strong>12.10.2006</strong></td>
+				<td>3.194,40</td>
+				<td>- 1,72</td>
+				<td>100,61</td>
+				<td>- 0,15</td>
+			</tr>
+			<tr res='t11.10.2006' >
+				<td><strong>11.10.2006</strong></td>
+				<td>3.250,21</td>
+				<td>0,83</td>
+				<td>100,76</td>
+				<td>- 0,08</td>
+			</tr>
+			<tr res='t10.10.2006' >
+				<td><strong>10.10.2006</strong></td>
+				<td>3.223,30</td>
+				<td>- 0,33</td>
+				<td>100,84</td>
+				<td>- 0,13</td>
+			</tr>
+			<tr res='t9.10.2006' >
+				<td><strong>9.10.2006</strong></td>
+				<td>3.233,88</td>
+				<td>- 0,34</td>
+				<td>100,97</td>
+				<td>- 0,09</td>
+			</tr>
+			<tr res='t6.10.2006' >
+				<td><strong>6.10.2006</strong></td>
+				<td>3.244,90</td>
+				<td>1,60</td>
+				<td>101,06</td>
+				<td>0,11</td>
+			</tr>
+			<tr res='t5.10.2006' >
+				<td><strong>5.10.2006</strong></td>
+				<td>3.193,83</td>
+				<td>0,69</td>
+				<td>100,95</td>
+				<td>0,29</td>
+			</tr>
+			<tr res='t4.10.2006' >
+				<td><strong>4.10.2006</strong></td>
+				<td>3.171,87</td>
+				<td>0,56</td>
+				<td>100,66</td>
+				<td>- 0,15</td>
+			</tr>
+			<tr res='t3.10.2006' >
+				<td><strong>3.10.2006</strong></td>
+				<td>3.154,22</td>
+				<td>- 0,10</td>
+				<td>100,81</td>
+				<td>- 0,05</td>
+			</tr>
+			<tr res='t2.10.2006' >
+				<td><strong>2.10.2006</strong></td>
+				<td>3.157,29</td>
+				<td>- 0,21</td>
+				<td>100,87</td>
+				<td>0,11</td>
+			</tr>
+			<tr res='t29.9.2006' >
+				<td><strong>29.9.2006</strong></td>
+				<td>3.163,80</td>
+				<td>- 0,57</td>
+				<td>100,76</td>
+				<td>0,05</td>
+			</tr>
+			<tr res='t28.9.2006' >
+				<td><strong>28.9.2006</strong></td>
+				<td>3.181,97</td>
+				<td>0,84</td>
+				<td>100,71</td>
+				<td>- 0,03</td>
+			</tr>
+			<tr res='t27.9.2006' >
+				<td><strong>27.9.2006</strong></td>
+				<td>3.155,37</td>
+				<td>0,36</td>
+				<td>100,74</td>
+				<td>- 0,05</td>
+			</tr>
+			<tr res='t26.9.2006' >
+				<td><strong>26.9.2006</strong></td>
+				<td>3.144,16</td>
+				<td>- 0,20</td>
+				<td>100,79</td>
+				<td>0,11</td>
+			</tr>
+			<tr res='t25.9.2006' >
+				<td><strong>25.9.2006</strong></td>
+				<td>3.150,55</td>
+				<td>0,78</td>
+				<td>100,68</td>
+				<td>0,04</td>
+			</tr>
+			<tr res='t22.9.2006' >
+				<td><strong>22.9.2006</strong></td>
+				<td>3.126,04</td>
+				<td>- 0,69</td>
+				<td>100,65</td>
+				<td>0,18</td>
+			</tr>
+			<tr res='t21.9.2006' >
+				<td><strong>21.9.2006</strong></td>
+				<td>3.147,91</td>
+				<td>- 0,03</td>
+				<td>100,46</td>
+				<td>- 0,11</td>
+			</tr>
+			<tr res='t20.9.2006' >
+				<td><strong>20.9.2006</strong></td>
+				<td>3.148,85</td>
+				<td>- 2,01</td>
+				<td>100,57</td>
+				<td>- 0,09</td>
+			</tr>
+			<tr res='t19.9.2006' >
+				<td><strong>19.9.2006</strong></td>
+				<td>3.213,39</td>
+				<td>- 1,53</td>
+				<td>100,65</td>
+				<td>- 0,24</td>
+			</tr>
+			<tr res='t18.9.2006' >
+				<td><strong>18.9.2006</strong></td>
+				<td>3.263,32</td>
+				<td>- 0,44</td>
+				<td>100,89</td>
+				<td>- 0,33</td>
+			</tr>
+			<tr res='t15.9.2006' >
+				<td><strong>15.9.2006</strong></td>
+				<td>3.277,80</td>
+				<td>- 0,61</td>
+				<td>101,23</td>
+				<td>- 0,08</td>
+			</tr>
+			<tr res='t14.9.2006' >
+				<td><strong>14.9.2006</strong></td>
+				<td>3.298,04</td>
+				<td>0,40</td>
+				<td>101,31</td>
+				<td>- 0,24</td>
+			</tr>
+			<tr res='t13.9.2006' >
+				<td><strong>13.9.2006</strong></td>
+				<td>3.284,77</td>
+				<td>0,11</td>
+				<td>101,55</td>
+				<td>- 0,10</td>
+			</tr>
+			<tr res='t12.9.2006' >
+				<td><strong>12.9.2006</strong></td>
+				<td>3.281,27</td>
+				<td>1,14</td>
+				<td>101,65</td>
+				<td>- 0,11</td>
+			</tr>
+			<tr res='t11.9.2006' >
+				<td><strong>11.9.2006</strong></td>
+				<td>3.244,21</td>
+				<td>- 0,47</td>
+				<td>101,77</td>
+				<td>0,02</td>
+			</tr>
+			<tr res='t8.9.2006' >
+				<td><strong>8.9.2006</strong></td>
+				<td>3.259,53</td>
+				<td>1,17</td>
+				<td>101,75</td>
+				<td>- 0,12</td>
+			</tr>
+			<tr res='t7.9.2006' >
+				<td><strong>7.9.2006</strong></td>
+				<td>3.221,76</td>
+				<td>0,32</td>
+				<td>101,87</td>
+				<td>0,02</td>
+			</tr>
+			<tr res='t6.9.2006' >
+				<td><strong>6.9.2006</strong></td>
+				<td>3.211,64</td>
+				<td>1,46</td>
+				<td>101,84</td>
+				<td>- 0,01</td>
+			</tr>
+			<tr res='t5.9.2006' >
+				<td><strong>5.9.2006</strong></td>
+				<td>3.165,38</td>
+				<td>1,44</td>
+				<td>101,86</td>
+				<td>- 0,10</td>
+			</tr>
+			<tr res='t4.9.2006' >
+				<td><strong>4.9.2006</strong></td>
+				<td>3.120,36</td>
+				<td>0,11</td>
+				<td>101,96</td>
+				<td>- 0,12</td>
+			</tr>
+			<tr res='t1.9.2006' >
+				<td><strong>1.9.2006</strong></td>
+				<td>3.117,06</td>
+				<td>0,57</td>
+				<td>102,08</td>
+				<td>0,00</td>
+			</tr>
+			<tr res='t31.8.2006' >
+				<td><strong>31.8.2006</strong></td>
+				<td>3.099,53</td>
+				<td>1,36</td>
+				<td>102,09</td>
+				<td>0,03</td>
+			</tr>
+			<tr res='t30.8.2006' >
+				<td><strong>30.8.2006</strong></td>
+				<td>3.057,91</td>
+				<td>0,15</td>
+				<td>102,06</td>
+				<td>- 0,02</td>
+			</tr>
+			<tr res='t30.8.2006' bgcolor="grey">
+				<td>Footer row</td>
+				<td>not sorting</td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+  <script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-416546-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>  
+	</body>
+</html>
