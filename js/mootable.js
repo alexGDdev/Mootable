@@ -1,4 +1,5 @@
 /**
+*
 * Based on :
 *
 * @file mootable.js
@@ -11,20 +12,18 @@
 ** @modified by L'ami Nuscule for better cross-browser compatibility (mainly for Safari2)
 * @date Oct. 11, 2007
 *
-** @modified by Alex @ Globaldizajn.hr visible columns settings saving into Cookie
+** @modified by Alex @ Globaldizajn.hr
 * @date Oct. 20, 2007
 *
-** @modified by Alex @ Globaldizajn.hr
-* @date December 05. 2007
-*
-*** @modified by Alex @ Globaldizajn.hr added drag'n'drop order of columns
-* @date January 11. 2007
 *
 * Added : - protected in options (will not allow columns to be hidden)
 * 		  - saving columns settings in Cookies (size and visibility)
 * 		  - reworked sorting system, implemented from Stuart Langridge, changed sorting with dates to accept dd/mm/yyyy
 * 		  - MooTable only supports from now creating table from table, results in much quicker rendering time for larger tables (speed improvement is noticable with row count over 50)
 * 		  - you can choose order of columns in display menu (top right corner of the table)
+*		  - added 5/14/08 by Jordan Ehrlich (KU) to allow sortable columns parameter
+*		  - added decimal option to choose decimal separator sign, defaults to .
+* last update 2008-05-16
 */
 
 var MooTable = new Class({
@@ -32,11 +31,12 @@ var MooTable = new Class({
 	initialize: function( el, options ){
 		this.element = $(el);
 		this.klon = $(el).clone();
+		//this.klon.rows[0].remove();
 		this.options = Object.extend(
 			{
 				height: '90%',
 				resizable: false,
-				sortable: true,
+				sortable: '',
 				useloading: true,
 				position: 'inside',
 				section: 20,
@@ -44,11 +44,12 @@ var MooTable = new Class({
 				fade: false,
 				headers: false,
 				data: false,
-				protected: 'Date',
+				protected: '',
 				debug: false,
 				footer: false,
 				filter: [],
-				minColWidth: null
+				minColWidth: 50,
+				decimal:'.'
 			} , options || {} );
 
 		/* set up our reference arrays */
@@ -90,8 +91,13 @@ var MooTable = new Class({
 					el.addEvent("keyup", function(){
 					    for(i=1;i<this.klon.rows.length;i++){
 						    if(el.value!=""){
-								if(this.klon.rows[i].cells[el.id].innerHTML.indexOf(el.value)==-1)
+								if(this.klon.rows[i].cells[el.id].innerHTML.indexOf(el.value)==-1) {
 									this.klon.rows[i].setStyle("display", "none")
+								}
+								else if(this.klon.rows[i].getStyle("display")=="none"){
+                                    this.klon.rows[i].setStyle("display", "")
+								}
+								
 							}
 							else{
                                 this.klon.rows[i].setStyle("display", "")
@@ -141,7 +147,6 @@ var MooTable = new Class({
 			});
 		}
 
-  		this._setFilters();
 
 		//calculate minimal col width
 		this._minSizes();
@@ -161,22 +166,12 @@ var MooTable = new Class({
 
 	},
 
-	_setFilters:function(){
-        if(this.options.filter.length!=0){
-			for(var i=0;i<this.klon.rows[0].cells.length;i++){
-                this.klon.rows[0].cells[i].innerHTML = "<input type='text' id='"+i+"' class='filter_field' style='font-size:9px;width:50px;'>";
-			}
-		}
-		else{
-			this.klon.rows[0].remove();
-  		}
-	},
-
 	_minSizes:function(){
 		//find the min size of each cell
-		if(this.klon.rows.length<1) return;
+		if(this.klon.rows.length<2) return;
 		//set id for row width control
-		this.klon.rows[1].id = "controlRowWidth";
+		this.klon.rows[0].id = "controlRowWidth";
+		this.klon.addClass("klonPadding");
 		this.minSizes = [];
 		
 		if (this.options.fade){
@@ -191,12 +186,12 @@ var MooTable = new Class({
 		}
 		else{
 		
-			for(var i=0;i<this.klon.rows[1].cells.length;i++){
+			for(var i=0;i<this.klon.rows[0].cells.length;i++){
 				//remove header
 				//this.element.rows[0].style.display="none";
 				//find out min size of each cell by setting width 1
-				this.element.rows[1].cells[i].setAttribute("width",1);
-				var w = (this.element.rows[1].cells[i].clientWidth>this.options.minColWidth) ? this.element.rows[1].cells[i].clientWidth+5 : this.options.minColWidth;
+				this.element.rows[0].cells[i].setAttribute("width",1);
+				var w = (this.element.rows[0].cells[i].clientWidth>this.options.minColWidth) ? this.element.rows[0].cells[i].clientWidth+5 : this.options.minColWidth;
 				this.minSizes.push(w);
 			}
 		}
@@ -335,10 +330,17 @@ var MooTable = new Class({
 
 				if(t.getElement('tfoot')) t.getElement('tfoot').remove();
 				tr.getElementsBySelector('th,td').each( function( th ){
-					value = th.innerHTML;
-					this._addHeader(value);
+					value = th.innerHTML; 
+					if(this.options.sortable.length>0)
+					{
+						if(this.options.sortable.indexOf(value)!=-1)
+							this._addHeader(value);
+						else
+							this._addHeader(value, {sortable: false});
+					}
+					else
+						this._addHeader(value);
 				}, this);
-				//console.log("makeTableFromTable");
 			}
 			count++;
 
@@ -416,6 +418,13 @@ var MooTable = new Class({
 		}, opts || {} );
 		var cell = new Element('div').injectInside( this.thead_tr ).addClass('th');
 		new Element('div').addClass('cell').setHTML( value ).injectInside( cell );
+		
+		if(this.options.filter.length!=0){
+			var filterDiv = new Element('div').setStyle('overflow','hidden');
+			new Element('input').setProperty('type','text').setProperty('id',this.headers.length).setProperty('class','filter_field').injectInside(filterDiv);
+			filterDiv.injectInside(cell);
+		}
+		
 		var h = {
 			element: cell,
 			value: value,
@@ -743,7 +752,7 @@ var MooTable = new Class({
 
 	    var spantext = this.ts_getInnerText(span);
 
-	    var table = this.klone;
+	    //var table = this.klone;
 
 	    // Work out a type for the column
 	    if (this.rows.length <= 1) return;
@@ -815,7 +824,7 @@ var MooTable = new Class({
 				this.klon.tBodies[0].appendChild(newRows[i]);
 		}
 
-		this._setColumnWidthsKlon();
+		//this._setColumnWidthsKlon();
 		this._zebra();
 		this._fireEvent('sortFinish');
 	},
@@ -847,13 +856,25 @@ var MooTable = new Class({
 	},
 
 	ts_sort_numeric : function (a,b) {
-	    aa = this.ts_getInnerText(a.cells[this.sortColumnIndex]).replace(/\./g,'');
-		aa = parseFloat(aa.replace(/\,/g,'.'));
+		
+		if (this.options.decimal==",") {
+		    aa = this.ts_getInnerText(a.cells[this.sortColumnIndex]).replace(/\./g,'');
+			aa = parseFloat(aa.replace(/\,/g,'.'));
+			
+			bb = this.ts_getInnerText(b.cells[this.sortColumnIndex]).replace(/\./g,'');
+			bb = parseFloat(bb.replace(/\,/g,'.'));
+		}
+		else{
+			aa=a;
+			bb=b;
+			
+		}
+		
 	    if (isNaN(aa)) aa = 0;
-	    bb = this.ts_getInnerText(b.cells[this.sortColumnIndex]).replace(/\./g,'');
-		bb = parseFloat(bb.replace(/\,/g,'.'));
 	    if (isNaN(bb)) bb = 0;
-	    return aa-bb;
+	    
+		return aa-bb;
+
 	},
 
 	ts_sort_caseinsensitive : function (a,b) {
